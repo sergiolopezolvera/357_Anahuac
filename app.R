@@ -9,8 +9,8 @@ resultados <- read.csv("data/357_AlumnosAnahuac.csv") %>%
 ui <- fluidPage(
   
   # Application title
-  titlePanel("Tiburones y charales"),
-  p("Análisis de resultados de los alumnos de la asignatura ", em("Derecho Ambiental"), " de la", strong(" Universidad Anáhuac campus Xalapa"), " en 2023."),
+  titlePanel(" Análisis del juego Tiburones y charales"),
+  p("Análisis de resultados de la participación de los alumnos de la asignatura ", em("Derecho Ambiental"), " de la", strong(" Universidad Anáhuac campus Xalapa"), " en 2023."),
   h3("Análisis individual"),
   
   p("Elige", strong(" una alumna o un alumno"), " y el", strong(" conjunto de criterios"), " que te interesen para analizar sus resultados."),

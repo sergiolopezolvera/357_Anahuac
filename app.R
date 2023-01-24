@@ -30,7 +30,8 @@ ui <- fluidPage(
                               "Karla",
                               "Leslie",
                               "Neila"),
-                  multiple = FALSE),
+                  multiple = FALSE,
+                  selected = "Alejandra"),
       
       selectInput("criterios",
                   "Elige uno o más criterios:",

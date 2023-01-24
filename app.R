@@ -19,17 +19,17 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput("alumno",
                   "Elige una alumna o un alumno:",
-                  choices = c("Alejandra Vargas Paz",
-                              "Alfonso Marín Sánchez",
-                              "Alicia Hernández",
-                              "Allan Muñóz Díaz Velarde",
-                              "Carmen Dayana Peña Otero",
-                              "Clemente Condado López",
-                              "Gerardo Katz",
+                  choices = c("Alejandra",
+                              "Alfonso",
+                              "Alicia",
+                              "Allan",
+                              "Carmen Dayana",
+                              "Clemente",
+                              "Gerardo",
                               "José María",
                               "Karla",
-                              "Leslie Armas Márquez",
-                              "Neila Z."),
+                              "Leslie",
+                              "Neila"),
                   multiple = FALSE),
       
       selectInput("criterios",
@@ -59,19 +59,19 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput("alumnos",
                   "Elige una o más alumnas o alumnos:",
-                  choices = c("Alejandra Vargas Paz",
-                              "Alfonso Marín Sánchez",
-                              "Alicia Hernández",
-                              "Allan Muñóz Díaz Velarde",
-                              "Carmen Dayana Peña Otero",
-                              "Clemente Condado López",
-                              "Gerardo Katz",
+                  choices = c("Alejandra",
+                              "Alfonso",
+                              "Alicia",
+                              "Allan",
+                              "Carmen Dayana",
+                              "Clemente",
+                              "Gerardo",
                               "José María",
                               "Karla",
-                              "Leslie Armas Márquez",
-                              "Neila Z."),
+                              "Leslie",
+                              "Neila"),
                   multiple = TRUE,
-                  selected = "Alejandra Vargas Paz"),
+                  selected = "Alejandra"),
       
       selectInput("criterio",
                   "Elige un:",
@@ -110,7 +110,8 @@ ui <- fluidPage(
            h4("¿Contra quién obtuvieron más?"),
            tableOutput("obtuvieronmas")
     )
-  )
+  ),
+  strong("Web app desarrollada por Sergio López Olvera")
 )
 
 # Define server logic required to draw a histogram

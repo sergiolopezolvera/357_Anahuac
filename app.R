@@ -112,6 +112,21 @@ ui <- fluidPage(
            tableOutput("obtuvieronmas")
     )
   ),
+  
+  fluidRow(
+           column(3,
+                  h4("¿Quién cooperó más veces?"),
+                  tableOutput("colaboromas")
+           ),
+           column(3,
+                  h4("¿Quién se sacrificó más veces?"),
+                  tableOutput("sacrificomas")
+           ),
+           column(3,
+                  h4("¿Quién intentó aprovecharse más veces?"),
+                  tableOutput("aprovechomas")
+           )),
+  
   strong("Web app desarrollada por Sergio López Olvera")
 )
 
@@ -163,6 +178,24 @@ server <- function(input, output) {
                                         group_by(Alumno) %>%
                                         summarise(Promedio = mean(Resultado)) %>%
                                         arrange(desc(Promedio)))
+  
+  output$colaboromas <- renderTable(resultados %>%
+                                        filter(Criterio == "Pidio" & Resultado == 5) %>%
+                                        group_by(Alumno) %>%
+                                        summarise(Veces = n()) %>%
+                                        arrange(desc(Veces)))
+  
+  output$sacrificomas <- renderTable(resultados %>%
+                                       filter(Criterio == "Pidio" & Resultado == 3) %>%
+                                       group_by(Alumno) %>%
+                                       summarise(Veces = n()) %>%
+                                       arrange(desc(Veces)))
+  
+  output$aprovechomas <- renderTable(resultados %>%
+                                       filter(Criterio == "Pidio" & Resultado == 7) %>%
+                                       group_by(Alumno) %>%
+                                       summarise(Veces = n()) %>%
+                                       arrange(desc(Veces)))
 }
 
 # Run the application 

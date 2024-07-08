@@ -1,7 +1,7 @@
 library(shiny)
 library(tidyverse)
 
-resultados <- read.csv("data/357_AlumnosAnahuac.csv") %>%
+resultados <- read.csv("data/SEDEMA.csv") %>%
   pivot_longer(cols = c(Pidio, Contraparte.pidio, Obtuvo, Contraparte.obtuvo),
                names_to = "Criterio", values_to = "Resultado")
 
@@ -10,28 +10,29 @@ ui <- fluidPage(
   
   # Application title
   titlePanel(" Análisis del juego Tiburones y charales"),
-  p("Análisis de resultados de la participación de los alumnos de la asignatura ", em("Derecho Ambiental"), " de la", strong(" Universidad Anáhuac campus Xalapa"), " en 2023."),
+  p("Análisis de resultados de estudiantes del Docotrado en Ciencias Sociales de", strong(" CIESAS-Golfo"), " en julio de 2024."),
   h3("Análisis individual"),
   
-  p("Elige", strong(" una alumna o un alumno"), " y el", strong(" conjunto de criterios"), " que te interesen para analizar sus resultados."),
+  p("Elige", strong(" una persona"), " y el", strong(" conjunto de criterios"), " que te interesen para analizar sus resultados."),
   
   sidebarLayout(
     sidebarPanel(
       selectInput("alumno",
-                  "Elige una alumna o un alumno:",
-                  choices = c("Alejandra",
-                              "Alfonso",
-                              "Alicia",
-                              "Allan",
-                              "Carmen Dayana",
-                              "Clemente",
-                              "Gerardo",
-                              "José María",
-                              "Karla",
-                              "Leslie",
-                              "Neila"),
+                  "Elige una persona:",
+                  choices = c("Misael_Garcia",
+                              "Levi_Villanueva",
+                              "Osmar_Ayala",
+                              "Adriana_Reyes",
+                              "Juan_Contreras",
+                              "Rudy_Alamilla",
+                              "Guadalupe_Alarcón",
+                              "Brenda_Soto",
+                              "Rosa_Nochebuena",
+                              "Carlos_Pimentel",
+                              "Gloria_Solis",
+                              "Ivan_Mezquita"),
                   multiple = FALSE,
-                  selected = "Alejandra"),
+                  selected = "Misael_Garcia"),
       
       selectInput("criterios",
                   "Elige uno o más criterios:",
@@ -54,28 +55,29 @@ ui <- fluidPage(
   
   h3("Análisis comparado"),
   
-  p("Elige un", strong(" conjunto de alumnas o alumnos"), " y", strong(" un criterio"), "que te interesen para analizar sus resultados."),
+  p("Elige un", strong(" conjunto de personas"), " y", strong(" un criterio"), "que te interesen para analizar sus resultados."),
   
   sidebarLayout(
     sidebarPanel(
       selectInput("alumnos",
-                  "Elige una o más alumnas o alumnos:",
-                  choices = c("Alejandra",
-                              "Alfonso",
-                              "Alicia",
-                              "Allan",
-                              "Carmen Dayana",
-                              "Clemente",
-                              "Gerardo",
-                              "José María",
-                              "Karla",
-                              "Leslie",
-                              "Neila"),
+                  "Elige una o más personas:",
+                  choices = c("Misael_Garcia",
+                              "Levi_Villanueva",
+                              "Osmar_Ayala",
+                              "Adriana_Reyes",
+                              "Juan_Contreras",
+                              "Rudy_Alamilla",
+                              "Guadalupe_Alarcón",
+                              "Brenda_Soto",
+                              "Rosa_Nochebuena",
+                              "Carlos_Pimentel",
+                              "Gloria_Solis",
+                              "Ivan_Mezquita"),
                   multiple = TRUE,
-                  selected = "Alejandra"),
+                  selected = "Misael_Garcia"),
       
       selectInput("criterio",
-                  "Elige un:",
+                  "Elige un criterio:",
                   choices = c("Pidio",
                               "Obtuvo",
                               "Contraparte.pidio",
@@ -127,7 +129,9 @@ ui <- fluidPage(
                   tableOutput("aprovechomas")
            )),
   
-  strong("Web app desarrollada por Sergio López Olvera")
+  strong("Web app desarrollada por Sergio López Olvera"),
+  
+  p("Puedes consultar el código de esta app en", a(href = "https://github.com/sergiolopezolvera/357_Anahuac/blob/main/app.R", "mi GitHub."))
 )
 
 # Define server logic required to draw a histogram
@@ -140,7 +144,7 @@ server <- function(input, output) {
       ggplot(aes(Ronda, Resultado, color = Criterio)) +
       geom_line() +
       geom_point() +
-      scale_x_continuous(limits = c(1,20), breaks = c(seq(1,20))) +
+      scale_x_continuous(limits = c(1,18), breaks = c(seq(1,18))) +
       scale_y_continuous(breaks = c(0,3,5,7))
   })
   
@@ -151,7 +155,7 @@ server <- function(input, output) {
       ggplot(aes(Ronda, Resultado, color = Alumno)) +
       geom_line() +
       geom_point() +
-      scale_x_continuous(limits = c(1,20), breaks = c(seq(1,20))) +
+      scale_x_continuous(limits = c(1,18), breaks = c(seq(1,18))) +
       scale_y_continuous(breaks = c(0,3,5,7))
   })
   

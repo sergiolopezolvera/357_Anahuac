@@ -5,9 +5,9 @@ account: sergiolopezolvera
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 8119680
-bundleId: 6770582
+bundleId: 7230124
 url: https://sergiolopezolvera.shinyapps.io/356_AlumnosAnahuac_2023/
-when: 1674607100.5413
-lastSyncTime: 1674607100.54131
+when: 1684342168.64175
+lastSyncTime: 1684342168.64177
 asMultiple: FALSE
 asStatic: FALSE
